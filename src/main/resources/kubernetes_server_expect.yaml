@@ -29,11 +29,11 @@ expectations:
     returnCode: 200
 
   - path: "/apis/apps/v1/namespaces/08abb0fc-f7af-4fe8-98d4-e76729567dc8/deployments"
-    method: "POST"
+    method: "PUT"
     returnCode: 200
 
   - path: "/apis/apps/v1/namespaces/08abb0fc-f7af-4fe8-98d4-e76729567dc8/deployments/nginx"
-    method: "POST"
+    method: "PUT"
     returnCode: 200
 
 ## PODS
