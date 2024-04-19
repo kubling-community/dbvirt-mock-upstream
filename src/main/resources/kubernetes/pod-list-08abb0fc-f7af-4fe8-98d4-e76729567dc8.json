@@ -1,0 +1,532 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2024-03-18T16:02:12Z",
+        "generateName": "nginx-548855c86-",
+        "labels": {
+          "mgmt.kubling.com/client": "true",
+          "mgmt.kubling.com/name": "nginx",
+          "mgmt.kubling.com/user": "1",
+          "pod-template-hash": "548855c86"
+        },
+        "name": "nginx-548855c86-kfpsj",
+        "namespace": "08abb0fc-f7af-4fe8-98d4-e76729567dc8",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "nginx-548855c86",
+            "uid": "284c0388-e35f-4427-8f9a-f5144f587183"
+          }
+        ],
+        "resourceVersion": "2017770",
+        "uid": "f467bb12-28ba-41fd-860d-3c69a8d8808f"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "image": "nginx",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "1-nginx",
+            "resources": {
+              "limits": {
+                "cpu": "250m",
+                "ephemeral-storage": "1Gi",
+                "memory": "476Mi"
+              },
+              "requests": {
+                "cpu": "250m",
+                "ephemeral-storage": "1Gi",
+                "memory": "476Mi"
+              }
+            },
+            "securityContext": {
+              "runAsUser": 0
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/my/mnt",
+                "name": "conf1-m0zhgq",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "kbl-platform-m1",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "configMap": {
+              "defaultMode": 420,
+              "name": "conf1"
+            },
+            "name": "conf1-m0zhgq"
+          }
+        ]
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T16:02:12Z",
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T16:02:15Z",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T16:02:15Z",
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T16:02:12Z",
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "containerID": "containerd://8b8e961c13ae87aaffad54efda8451a4fde252e2abc0dd5a8d7b4d0c0802fbc6",
+            "image": "docker.io/library/nginx:latest",
+            "imageID": "docker.io/library/nginx@sha256:84c52dfd55c467e12ef85cad6a252c0990564f03c4850799bf41dd738738691f",
+            "lastState": {},
+            "name": "1-nginx",
+            "ready": true,
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2024-03-18T16:02:14Z"
+              }
+            }
+          }
+        ],
+        "hostIP": "172.20.20.109",
+        "phase": "Running",
+        "podIP": "10.42.0.19",
+        "podIPs": [
+          {
+            "ip": "10.42.0.19"
+          }
+        ],
+        "qosClass": "Guaranteed",
+        "startTime": "2024-03-18T16:02:12Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2024-03-18T16:51:34Z",
+        "labels": {
+          "mgmt.kubling.com/ephemeral": "true",
+          "mgmt.kubling.com/job": "true",
+          "mgmt.kubling.com/jobname": "test",
+          "mgmt.kubling.com/jobrun": "7c56d4d7-412d-415e-9b05-fd5055399c9c",
+          "mgmt.kubling.com/template": "nginx1",
+          "mgmt.kubling.com/userid": "1"
+        },
+        "name": "5f0ae61c-3237-4be4-8404-673e4477cc68",
+        "namespace": "08abb0fc-f7af-4fe8-98d4-e76729567dc8",
+        "resourceVersion": "2019766",
+        "uid": "8f260fdd-048c-4147-924b-bcff605872e2"
+      },
+      "spec": {
+        "automountServiceAccountToken": false,
+        "containers": [
+          {
+            "image": "nginx",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "8f27ce6b-9358-458d-af13-5163d1023ff9",
+            "resources": {
+              "limits": {
+                "cpu": "250m",
+                "ephemeral-storage": "1Gi",
+                "memory": "476Mi"
+              },
+              "requests": {
+                "cpu": "250m",
+                "ephemeral-storage": "1Gi",
+                "memory": "476Mi"
+              }
+            },
+            "securityContext": {
+              "runAsUser": 0
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File"
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "nodeName": "kbl-platform-m1",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Never",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ]
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T16:51:34Z",
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T16:51:36Z",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T16:51:36Z",
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T16:51:34Z",
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "containerID": "containerd://1ce201069f3b28306c3a10f2fbfe6c4bc35bab8c8667628c802f437f28825c82",
+            "image": "docker.io/library/nginx:latest",
+            "imageID": "docker.io/library/nginx@sha256:84c52dfd55c467e12ef85cad6a252c0990564f03c4850799bf41dd738738691f",
+            "lastState": {},
+            "name": "8f27ce6b-9358-458d-af13-5163d1023ff9",
+            "ready": true,
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2024-03-18T16:51:36Z"
+              }
+            }
+          }
+        ],
+        "hostIP": "172.20.20.109",
+        "phase": "Running",
+        "podIP": "10.42.0.20",
+        "podIPs": [
+          {
+            "ip": "10.42.0.20"
+          }
+        ],
+        "qosClass": "Guaranteed",
+        "startTime": "2024-03-18T16:51:34Z"
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "creationTimestamp": "2024-03-18T17:32:47Z",
+        "generateName": "storage1-08abb0fc-f7af-4fe8-98d4-e76729567dc8-5ccf7b8475-",
+        "labels": {
+          "mgmt.kubling.com/client": "false",
+          "mgmt.kubling.com/name": "storage1",
+          "mgmt.kubling.com/nfs-server": "true",
+          "mgmt.kubling.com/user": "1",
+          "pod-template-hash": "5ccf7b8475"
+        },
+        "name": "storage1-08abb0fc-f7af-4fe8-98d4-e76729567dc8-5ccf7b8475-xvm5r",
+        "namespace": "08abb0fc-f7af-4fe8-98d4-e76729567dc8",
+        "ownerReferences": [
+          {
+            "apiVersion": "apps/v1",
+            "blockOwnerDeletion": true,
+            "controller": true,
+            "kind": "ReplicaSet",
+            "name": "storage1-08abb0fc-f7af-4fe8-98d4-e76729567dc8-5ccf7b8475",
+            "uid": "16d6e7b6-caf5-4869-859b-38717b2ceb2d"
+          }
+        ],
+        "resourceVersion": "2021460",
+        "uid": "664ccdea-1ef3-44b5-b8b7-d3070fb7c9ff"
+      },
+      "spec": {
+        "containers": [
+          {
+            "env": [
+              {
+                "name": "LOG_LEVEL",
+                "value": "WARN"
+              },
+              {
+                "name": "STORAGE_TYPE",
+                "value": "LOCAL"
+              },
+              {
+                "name": "ROOT_DIR",
+                "value": "file:///data/vol"
+              },
+              {
+                "name": "EXPORTS_FILE_PATH",
+                "value": "file:///var/lib/nfs/exports"
+              },
+              {
+                "name": "RCP_PORT",
+                "value": "2049"
+              },
+              {
+                "name": "EMBED_PORTMAP",
+                "value": "true"
+              },
+              {
+                "name": "NFS3_SUPPORT",
+                "value": "false"
+              },
+              {
+                "name": "ONLY_PULL",
+                "value": "false"
+              },
+              {
+                "name": "STORAGE_SPACE_BYTES",
+                "value": "1073741824"
+              }
+            ],
+            "image": "kubling.artifactory.internal/kubling-attached-nfs-server:23.4",
+            "imagePullPolicy": "IfNotPresent",
+            "name": "nfs-server",
+            "ports": [
+              {
+                "containerPort": 2049,
+                "name": "tcp-2049",
+                "protocol": "TCP"
+              },
+              {
+                "containerPort": 8990,
+                "name": "stats",
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {
+              "limits": {
+                "cpu": "750m",
+                "memory": "512Mi"
+              },
+              "requests": {
+                "cpu": "750m",
+                "memory": "512Mi"
+              }
+            },
+            "securityContext": {
+              "privileged": true
+            },
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "volumeMounts": [
+              {
+                "mountPath": "/data/vol",
+                "name": "nfs-vol"
+              },
+              {
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-6gljj",
+                "readOnly": true
+              }
+            ]
+          }
+        ],
+        "dnsPolicy": "ClusterFirst",
+        "enableServiceLinks": true,
+        "imagePullSecrets": [
+          {
+            "name": "kubling-temp"
+          }
+        ],
+        "nodeName": "kbl-platform-m1",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "priority": 0,
+        "restartPolicy": "Always",
+        "schedulerName": "default-scheduler",
+        "securityContext": {},
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30,
+        "tolerations": [
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          },
+          {
+            "effect": "NoExecute",
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "tolerationSeconds": 300
+          }
+        ],
+        "volumes": [
+          {
+            "hostPath": {
+              "path": "/kbl/08abb0fc-f7af-4fe8-98d4-e76729567dc8/storage1",
+              "type": "DirectoryOrCreate"
+            },
+            "name": "nfs-vol"
+          },
+          {
+            "name": "kube-api-access-6gljj",
+            "projected": {
+              "defaultMode": 420,
+              "sources": [
+                {
+                  "serviceAccountToken": {
+                    "expirationSeconds": 3607,
+                    "path": "token"
+                  }
+                },
+                {
+                  "configMap": {
+                    "items": [
+                      {
+                        "key": "ca.crt",
+                        "path": "ca.crt"
+                      }
+                    ],
+                    "name": "kube-root-ca.crt"
+                  }
+                },
+                {
+                  "downwardAPI": {
+                    "items": [
+                      {
+                        "fieldRef": {
+                          "apiVersion": "v1",
+                          "fieldPath": "metadata.namespace"
+                        },
+                        "path": "namespace"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "status": {
+        "conditions": [
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T17:32:48Z",
+            "status": "True",
+            "type": "Initialized"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T17:32:55Z",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T17:32:55Z",
+            "status": "True",
+            "type": "ContainersReady"
+          },
+          {
+            "lastProbeTime": null,
+            "lastTransitionTime": "2024-03-18T17:32:48Z",
+            "status": "True",
+            "type": "PodScheduled"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "containerID": "containerd://1efd2dd5b974a39de8fc1bfccc1532c346f50b5542f5ebf2c2b1fa07d20b57b6",
+            "image": "kubling.artifactory.internal/kubling-attached-nfs-server:23.4",
+            "imageID": "kubling.artifactory.internal/kubling-attached-nfs-server@sha256:d1b583e5fcf6814bea2151d10a3e0b550eff394076541f20849d3149d46a1d86",
+            "lastState": {},
+            "name": "nfs-server",
+            "ready": true,
+            "restartCount": 0,
+            "started": true,
+            "state": {
+              "running": {
+                "startedAt": "2024-03-18T17:32:55Z"
+              }
+            }
+          }
+        ],
+        "hostIP": "172.20.20.109",
+        "phase": "Running",
+        "podIP": "10.42.0.21",
+        "podIPs": [
+          {
+            "ip": "10.42.0.21"
+          }
+        ],
+        "qosClass": "Guaranteed",
+        "startTime": "2024-03-18T17:32:48Z"
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "apiVersion": "v1",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolume",
+      "metadata": {
+        "annotations": {
+          "pv.kubernetes.io/bound-by-controller": "yes"
+        },
+        "creationTimestamp": "2024-03-18T17:32:48Z",
+        "finalizers": [
+          "kubernetes.io/pv-protection"
+        ],
+        "labels": {
+          "mgmt.kubling.com/nfs-server": "true",
+          "mgmt.kubling.com/userid": "1",
+          "mgmt.kubling.com/volname": "storage1"
+        },
+        "name": "storage1-08abb0fc-f7af-4fe8-98d4-e76729567dc8",
+        "resourceVersion": "2021447",
+        "uid": "3154cb26-e379-4f8a-949a-8ae3a4a08e49"
+      },
+      "spec": {
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "capacity": {
+          "storage": "1073M"
+        },
+        "claimRef": {
+          "apiVersion": "v1",
+          "kind": "PersistentVolumeClaim",
+          "name": "storage1",
+          "namespace": "08abb0fc-f7af-4fe8-98d4-e76729567dc8",
+          "resourceVersion": "2021445",
+          "uid": "5fc16a32-0601-4972-a0a7-7c4442c4bb65"
+        },
+        "csi": {
+          "driver": "nfs.csi.k8s.io",
+          "volumeAttributes": {
+            "server": "10.43.37.91",
+            "share": "/myvolume"
+          },
+          "volumeHandle": "storage1-08abb0fc-f7af-4fe8-98d4-e76729567dc8"
+        },
+        "mountOptions": [
+          "hard",
+          "nfsvers=4.1"
+        ],
+        "persistentVolumeReclaimPolicy": "Retain",
+        "volumeMode": "Filesystem"
+      },
+      "status": {
+        "phase": "Bound"
+      }
+    }
+  ],
+  "kind": "List",
+  "metadata": {
+    "resourceVersion": ""
+  }
+}

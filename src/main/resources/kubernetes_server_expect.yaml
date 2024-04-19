@@ -1,0 +1,54 @@
+serverPort: 8443
+expectations:
+
+## DEPLOYMENTS
+
+  - path: "/apis/apps/v1/deployments?fieldSelector=metadata.namespace%3Ddefault"
+    method: "GET"
+    resource: "kubernetes/deployment-list-empty.json"
+    returnCode: 200
+
+  - path: "/apis/apps/v1/deployments?fieldSelector=metadata.namespace%3Dkube-system"
+    method: "GET"
+    resource: "kubernetes/deployment-list-kube-system.json"
+    returnCode: 200
+
+  - path: "/apis/apps/v1/deployments?fieldSelector=metadata.namespace%3D08abb0fc-f7af-4fe8-98d4-e76729567dc8"
+    method: "GET"
+    resource: "kubernetes/deployment-list-08abb0fc-f7af-4fe8-98d4-e76729567dc8.json"
+    returnCode: 200
+
+  - path: "/apis/apps/v1/deployments?fieldSelector=metadata.name%3Dnginx%2Cmetadata.namespace%3D08abb0fc-f7af-4fe8-98d4-e76729567dc8"
+    method: "GET"
+    resource: "kubernetes/deployment-nginx-08abb0fc-f7af-4fe8-98d4-e76729567dc8.json"
+    returnCode: 200
+
+  - path: "/apis/apps/v1/deployments?fieldSelector=metadata__namespace%3D08abb0fc-f7af-4fe8-98d4-e76729567dc8%2Cmetadata__name%3Dnginx"
+    method: "GET"
+    resource: "kubernetes/deployment-nginx-08abb0fc-f7af-4fe8-98d4-e76729567dc8.json"
+    returnCode: 200
+
+  - path: "/apis/apps/v1/namespaces/08abb0fc-f7af-4fe8-98d4-e76729567dc8/deployments"
+    method: "POST"
+    returnCode: 200
+
+  - path: "/apis/apps/v1/namespaces/08abb0fc-f7af-4fe8-98d4-e76729567dc8/deployments/nginx"
+    method: "POST"
+    returnCode: 200
+
+## PODS
+
+  - path: "/api/v1/pods?fieldSelector=metadata.namespace%3Ddefault"
+    method: "GET"
+    resource: "kubernetes/pod-list-empty.json"
+    returnCode: 200
+
+  - path: "/api/v1/pods?fieldSelector=metadata.namespace%3Dkube-system"
+    method: "GET"
+    resource: "kubernetes/pod-list-kube-system.json"
+    returnCode: 200
+
+  - path: "/api/v1/pods?fieldSelector=metadata.namespace%3D08abb0fc-f7af-4fe8-98d4-e76729567dc8"
+    method: "GET"
+    resource: "kubernetes/pod-list-08abb0fc-f7af-4fe8-98d4-e76729567dc8.json"
+    returnCode: 200
