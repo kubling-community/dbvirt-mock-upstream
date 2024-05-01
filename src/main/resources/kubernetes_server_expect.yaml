@@ -23,7 +23,7 @@ expectations:
     resource: "kubernetes/deployment-nginx-08abb0fc-f7af-4fe8-98d4-e76729567dc8.json"
     returnCode: 200
 
-  - path: "/apis/apps/v1/deployments?fieldSelector=metadata__namespace%3D08abb0fc-f7af-4fe8-98d4-e76729567dc8%2Cmetadata__name%3Dnginx"
+  - path: "/apis/apps/v1/deployments?fieldSelector=metadata.namespace%3D08abb0fc-f7af-4fe8-98d4-e76729567dc8%2Cmetadata.name%3Dnginx"
     method: "GET"
     resource: "kubernetes/deployment-nginx-08abb0fc-f7af-4fe8-98d4-e76729567dc8.json"
     returnCode: 200
