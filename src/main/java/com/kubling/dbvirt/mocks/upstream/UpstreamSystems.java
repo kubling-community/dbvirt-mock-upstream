@@ -9,12 +9,15 @@ import io.fabric8.mockwebserver.dsl.DelayPathable;
 import io.fabric8.mockwebserver.dsl.MockServerExpectation;
 import io.fabric8.mockwebserver.dsl.ReturnOrWebsocketable;
 import io.fabric8.mockwebserver.dsl.TimesOnceableOrHttpHeaderable;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
+@Slf4j
 public class UpstreamSystems {
 
     List<MockServer> servers = new ArrayList<>();
@@ -24,9 +27,8 @@ public class UpstreamSystems {
     }
 
     void init() throws IOException {
-        servers.add(startFakeServer(
-                new String(this.getClass().getClassLoader()
-                        .getResourceAsStream("kubernetes_server_expect.yaml").readAllBytes())));
+        servers.addAll(startFakeServers(
+                List.of("kubernetes_server_1_expect.yaml", "kubernetes_server_2_expect.yaml")));
     }
 
     MockServer startFakeServer(String config) throws IOException {
@@ -47,7 +49,7 @@ public class UpstreamSystems {
 
             delayPathable
                     .withPath(expectation.getPath())
-                    .andReturn(expectation.getReturnCode(), readContent(expectation.getResource())).always();
+                    .andReturn(expectation.getReturnCode(), readContentTree(expectation.getResource())).always();
 
         }
 
@@ -57,10 +59,24 @@ public class UpstreamSystems {
 
     }
 
-    Object readContent(String resource) throws IOException {
-        if (Objects.isNull(resource) || resource.isEmpty()) return null;
-        return Serialization.jsonMapper()
-                .readTree(this.getClass().getClassLoader().getResourceAsStream(resource).readAllBytes());
+    List<MockServer> startFakeServers(List<String> configs) throws IOException {
+        return configs.stream().map(c -> {
+            try {
+                return startFakeServer(readResourceContent(c));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }).collect(Collectors.toUnmodifiableList());
     }
 
+    Object readContentTree(String resource) throws IOException {
+        if (Objects.isNull(resource) || resource.isEmpty()) return null;
+        return Serialization.jsonMapper().readTree(readResourceContent(resource));
+    }
+
+    String readResourceContent(String resource) throws IOException {
+        if (Objects.isNull(resource) || resource.isEmpty()) return null;
+        return new String(this.getClass().getClassLoader()
+                .getResourceAsStream(resource).readAllBytes());
+    }
 }
