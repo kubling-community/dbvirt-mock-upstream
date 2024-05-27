@@ -1,6 +1,13 @@
 serverPort: 8543
 expectations:
 
+  ## NAMESPACES
+
+  - path: "/api/v1/namespaces"
+    method: "GET"
+    resource: "kubernetes/ns-list.json"
+    returnCode: 200
+
 ## DEPLOYMENTS
 
   - path: "/apis/apps/v1/deployments?fieldSelector=metadata.namespace%3Ddefault"

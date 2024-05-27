@@ -14,12 +14,16 @@ public class Expectation {
     public enum HTTPMethod {
         GET,
         POST,
-        PUT
+        PUT,
+        PATCH,
+        DELETE
     }
 
     String path;
     HTTPMethod method;
     String resource;
     Integer returnCode;
-
+    @Builder.Default
+    Boolean once = Boolean.FALSE;
+    Expectation andThenUnlock;
 }
